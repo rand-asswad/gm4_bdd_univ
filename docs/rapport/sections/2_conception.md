@@ -2,9 +2,7 @@
 
 ## Modèle Entité/Association
 
-![](img/erd.png)
-
-### Les entités du schéma
+![Modèle Entité/Association](img/erd.png)
 
 **Trimestre :** Cette entité correspond à une période scolaire identifiée par une clé composée de 2 attributs : *année* + *période*. La période est l'une des trois : l'automne, le prinstemps ou l'été, il est possible d'associer une valeur numérique où un code à chaque période afin de minimiser la taille de stockage. Un trimestre est décrit par sa date de début et sa date de fin.
 
@@ -24,7 +22,7 @@ Elle est identifié par la clé unique *idCours* et contient les attributs *quot
 **Conseiller :** Identifié par la clé *idConseiller* et caractérisé par ses information de contact.
 
 \newpage
-### Les relations entre les entités
+## Les relations entre les entités
 **Relations binaires**
 
 **Se dérouler pendant :** Un cours se déroule pendant un trimestre définitivement, plusieurs cours se déroule pendant un trimestre.
@@ -91,18 +89,33 @@ On passe aux schéma relationnel à partir de notre modèle Entité/Association.
 
 ### Dénormalisation
 - La relation **Trimestre** peut être supprimée en la déplaçant vers la relation **Cours** car elle porte peu d'attributs et elle résulte d'une entité faible.
-- La relation **Matiere** peut être supprimée aussi car elle est instanciée par la relation **Cours** et porte peu d'attributs.
-- La relation **Domaine** peut être supprimée facilement en la déplaçant vers les relations **Professeur** et **Cours**
+- La relation **Domaine** peut être supprimée facilement en la déplaçant vers les relations **Professeur** et **Cours**.
 
 On est tempté de supprimer la relation **Conseiller** car elle est une entité faible et n'est reliée qu'à l'entité **Etudiant**. Néanmoins, il est très important d'avoir un tableau existant dans la base de donnée pour les personnes (Etudiants, Professeurs, Conseillers) sans avoir à faire des requêtes pour obtenir tel liste, je fais donc le choix de garder cette relation.
 
-### Schéma relationnel final
-- Cours(**idCours**, matiere, quota, dateDebut, dateExamen, codeMatiere, idProfesseur, domaine, respoDomaine, credits, annee, periode)
-- Professeur(**idProfesseur**, nomProf, prenomProf, adresseProf, emailProf, domaine)
-- Etudiant(**idEtudiant**, nomEtudiant, prenomEtudiant, adresseEtudiant, emailEtudiant, idConseiller)
-- Conseiller(**idConseiller**, nomConseiller, prenomConseiller, adresseConseiller, emailConseiller)
-- Diplome(**idDiplome**, titreDiplome, creditsEssentiels, creditsEnrichissement)
-- Prerequire(**cours**, matiereRequise)
-- SePreinscrire(**idCours**, **idEtudiant**)
-- Suivre(**idCours**, **idEtudiant**)
-- Preparer(**idEtudiant**, **idCours**, **Diplome**)
+### Modification sur le pré-rapport
+Quand j'ai commencé la deuxième partie du projet, j'ai reconsidéré les choix que j'avais effectué,
+j'expliquerais brièvement les changements que j'ai effectué:
+
+- Dans la dénormalisation, j'avais supprimé la relation **Matiere** car elle est instanciée par la relation **Cours**,
+finalement j'ai préféré la garder afin de distinguer ces deux relations et de rendre les tableaux plus lisibles.
+- Pour simplifier, j'ai renommé les entités qui portent des noms comme *prenomConseiller* en *prenom*.
+- J'ai fusionné les deux relations **Préinscription** et **Suivre** dans la relation **InscriptionCours**
+qui fait l'affaire.
+- J'ai remplacé l'association ternaire par deux associations binaires plus simples,
+car on n'utilise jamais les deux relations dans la même requête.
+En effet, la relation ternaire était un peu forcée.
+
+## Schéma relationnel final
+
+- Cours(**code**, matiere, quota, quotaExamen, dateDebut, dateExamen, enseignant, annee, periode)
+- Professeur(**id**, nom, prenom, adresse, email, dateNaissance)
+- Etudiant(**id**, nom, prenom, adresse, email, dateNaissance, idConseiller)
+- Conseiller(**id**, nom, prenom, adresse, email, dateNaissance)
+- Diplome(**id**, titre, niveau, creditsEssentiels, creditsEnrichissement)
+- PreRequisition(**matiere**, matiereRequise)
+- InscriptionCours(**cours**, **etudiant**, suivreCours, inscrit, noteConseiller, noteObtenue)
+- Preparer(**etudiant**, **diplome**)
+- Contenir(**diplome**, **matiere**)
+
+![Schéma Relationnel](../../../db/erd.png)

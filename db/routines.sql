@@ -42,9 +42,8 @@ CREATE PROCEDURE matieresRestantesDiplome(idEtudiant INT, idDiplome INT)
     SELECT Matiere.code, Matiere.nom, Matiere.credits
     FROM Contenir
     INNER JOIN Matiere ON Contenir.matiere = Matiere.code
-    INNER JOIN Valide ON Matiere.code = Valide.matiere
-    WHERE Matiere.code NOT IN (SELECT matiere FROM Valide WHERE Valide.etudiant=idEtudiant)
-    AND Contenir.id = idDiplome;
+    WHERE Matiere.code NOT IN (SELECT Valide.matiere FROM Valide WHERE Valide.etudiant=idEtudiant)
+    AND Contenir.diplome = idDiplome;
   end;
 
 DROP PROCEDURE IF EXISTS listeInscriptions;
