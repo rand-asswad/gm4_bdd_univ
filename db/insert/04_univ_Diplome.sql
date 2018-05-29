@@ -1,0 +1,13 @@
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (1, 'Mathématiques fondamentales et appliquées', 'BSc', 150, 30);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (2, 'Mathématiques et sciences de données', 'BSc', 150, 30);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (3, 'Informatique', 'BSc', 150, 30);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (4, 'Ingénierie de logiciel', 'BSc', 150, 30);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (5, 'Mathématiques et sciences de données', 'BSc', 150, 30);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (6, 'Physiques appliquées', 'BSc', 150, 30);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (7, 'Génie éléctronique', 'BEng', 150, 30);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (8, 'Génie énergétique', 'BEng', 150, 30);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (9, 'Génie généraliste', 'BEng', 150, 30);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (10, 'Analyse de signal', 'MEng', 105, 15);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (11, 'Mathématiques fondamentales et appliquées', 'MSc', 105, 15);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (12, 'Génie de modélisation et calculs', 'MEng', 105, 15);
+INSERT INTO univ.Diplome (id, titre, niveau, creditsEssentiels, creditsEnrichissement) VALUES (13, 'Technicien en informatique', 'Tech', 100, 10);

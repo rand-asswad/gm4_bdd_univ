@@ -1,0 +1,44 @@
+#!/bin/python3
+
+"""
+Associates each diploma with a bunch of subjects.
+Usage:
+    generate_inscriptions ETUDIANT COURS [OUTPUT]
+
+    ETUDIANT: input csv file containing 'Etudiant' table
+    DIPLOME: input csv file containing 'Diplome' table
+    OUTPUT: (optional) outp ut file name [default: preparer.csv]
+"""
+
+import sys
+import csv_list
+import numpy as np
+import random
+
+# parse script arguments
+if len(sys.argv) > 2:
+    etudiant_file = sys.argv[1]
+    diplome_file = sys.argv[2]
+    if len(sys.argv) > 3:
+        output = sys.argv [3]
+    else:
+        output = "preparer.csv"
+else:
+    print("Error: no input  file")
+    sys.exit(1)
+
+# read input csv
+etudiant = csv_list.read(etudiant_file)
+diplome = csv_list.read(diplome_file, header_row=True)
+
+# generate
+csv_table = []
+for i in range(1, len(etudiant) + 1):
+    n = random.randint(0, 4)
+    # get n random diplomas
+    diplomas = sorted(random.sample(range(1, len(diplome) + 1), n))
+    for j in diplomas:
+        csv_table.append([i, j])
+
+# write csv file
+csv_list.write(csv_table, output)

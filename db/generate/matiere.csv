@@ -1,0 +1,106 @@
+code;nom;credits;nomDomaine;respoDomaine
+LinAlg0;Trigonometrie et géometrie dans l’espace 3D;1;Algèbre linéaire;1
+LinAlg1;Th. des groupes, espaces vectoriels, app. Linéaires;2;Algèbre linéaire;1
+LinAlg2;Algèbre Linéaire – approfondissement;3;Algèbre linéaire;1
+Ana0;Analyse (suites et fonctions de variables réelles en dimension 1);1;Analyse mathématique;3
+Ana1;Analyse (suites et fonctions de variables réelles en dimension n);2;Analyse mathématique;3
+Ana2;Equation différentielles ordinaires;3;Analyse mathématique;3
+Ana3;Résolution analytiques des EDP;3;Analyse mathématique;3
+Ana4;Analyse fonctionnel;4;Analyse mathématique;3
+Control1;Théorie de contrôle;3;Contrôle et automatique;7
+Control2;Système dynamiques, théorie de contrôle;3;Contrôle et automatique;7
+Control3;Système dynamiques, théorie du chaos;4;Contrôle et automatique;7
+Topo0;Initiation à la topologie (générale et algébrique);2;Topologie;9
+Topo1;Topologie géometrique;3;Topologie;9
+Topo2;Topologie – approfondissement;4;Topologie;9
+Proba0;Initiation à la probablité (discrète);1;Probabilités et statistiques;11
+Proba1;Probabilité discrète et continue, var aléatoires, loi des grandes nombres;2;Probabilités et statistiques;11
+Proba2;Processus stochastiques;3;Probabilités et statistiques;11
+Mesure0;Théorie des ensembles;1;Théorie de la mesure;13
+Mesure1;Théorie de la mesure;3;Théorie de la mesure;13
+Comb0;Initiation à l’analyse combinatoire (graphes, etc);2;Combinatoires;15
+Comb1;Combinatoires avancées;3;Combinatoires;15
+Comb2;Optimisation combinatoire;4;Combinatoires;15
+Logic0;Logique, initation à la métamathématique, la méthode scientifique;2;Logique;19
+Logic1;Logique mathématique avancé;3;Logique;19
+Logic2;Logique mathématique avancé – approfondissement;5;Logique;19
+Logic3;Programmation logique;3;Logique;19
+Fourier1;La famille de transformations de fourier;3;Analyse de fourier;23
+Fourier2;Approfondissement dans l’analyse de fourier;4;Analyse de fourier;23
+Complex0;Les nombres complexes - applications géometriques;1;Analyse complexe;23
+Complex1;Analyse complexe;3;Analyse complexe;23
+Complex2;Analyse complexe – approfondissement;4;Analyse complexe;23
+Signal1;Analyse de signal – théorie et application;3;Traitement de signal;27
+Signal2;Signal aléatoire, filtrage, etc;3;Traitement de signal;27
+Signal3;Traitement de son;4;Traitement de signal;27
+Signal4;Traitement d’image;4;Traitement de signal;27
+Stats1;Initiation aux statistiques – estimateurs;3;Probabilités et statistiques;11
+Stats2;Modèles statistiques avancées;3;Probabilités et statistiques;11
+Stats3;Méthodes statistiques pour l’analyse de données;3;Probabilités et statistiques;11
+Num0;Contraintes numériques de l’ordinateurs – erreurs – algorithmes;3;Méthodes numériques et modélisation;30
+Num1;Méthodes numériques générales (système linéaires, equations différentielles);3;Méthodes numériques et modélisation;30
+Num2;Résolution de système linéaires;3;Méthodes numériques et modélisation;30
+Num3;Approximation de fonctions (interpolation, quadrature);3;Méthodes numériques et modélisation;30
+Num4;Résolution numérique des EDO et EDP;4;Méthodes numériques et modélisation;30
+Num5;Résolution numérique des EDP (avancé);4;Méthodes numériques et modélisation;30
+Num6;Résolution numérique – approfondissement;4;Méthodes numériques et modélisation;30
+Num7;Approximation de fonctions (Bezier, Splines, etc);4;Méthodes numériques et modélisation;30
+ProgLin;Programmation linéaire;3;Méthodes numériques et modélisation;30
+Model0;Initiation à la modélisation;3;Méthodes numériques et modélisation;30
+Model1;Modèlisation avancée;3;Méthodes numériques et modélisation;30
+Meca0;Physique Newtonienne (base de mécanique du point + applications);1;Mécanique fondamentale;40
+Meca1;Mécanique du point et relativité;3;Mécanique fondamentale;40
+Elec0;Electromagnétisme et courant alternatif;2;Electronique;42
+Elec1;Electromagnétisme avancé;3;Electronique;42
+Elec2;Physique quantique, electronique, et applications;2;Electronique;42
+Elec3;Electricité – avancé;3;Electronique;42
+Thermo0;Initiation à la thermodynamique;2;Thermodynamique;46
+Thermo1;Modèles thermodynamiques;2;Thermodynamique;46
+Thermo2;Thermodynamique chimique;2;Thermodynamique;46
+Thermo3;Thermodynamique avancée;3;Thermodynamique;46
+Fluid0;Initiation à la mécanique des fluides;2;Mécanique des fluides;50
+Fluid1;Mecanique des fluides;3;Mécanique des fluides;50
+Fluid2;Turbulances, dyphasique, etc;4;Mécanique des fluides;50
+Fluid3;Mecanique des fluides avancée;4;Mécanique des fluides;50
+Optique0;Optique géométriques;1;Physique optique;55
+Optique1;Optique ondulatoires;3;Physique optique;55
+Mat1;Matériaux (initiation);2;Etudes de matériaux;57
+Mat2;Matériaux (avancé);3;Etudes de matériaux;57
+Techno0;Architecture de l’ordinateur (culture générale);1;Technologies;59
+Techno1;Systèmes d’exploitations, logiciels (culture générale);1;Technologies;59
+Techno2;Maintenance de problèmes courants;2;Technologies;59
+Prog0;Initiation à la programmation;2;Programmation;65
+Prog1;Exercices de programmation;2;Programmation;65
+Prog2;Programmation avancé et structures de données;3;Programmation;65
+Prog3;POO + UML + génie logiciel;3;Programmation;65
+Prog4;Programmation d’interfaces graphiques;3;Programmation;65
+Net0;Résaux informatique (générales);2;Résaux;75
+Net1;Résaux – avancé;3;Résaux;75
+DevWeb0;Créations de sites pour les non informaticiens;1;Développement Web;77
+DevWeb1;Développement Web;3;Développement Web;77
+Algo1;Algorithmes;3;Algorithmiques;79
+Algo2;Algorithmes avancées;4;Algorithmiques;79
+Comp0;Automates, langages, regex;4;Algorithmiques;79
+Comp1;Langages et compilateurs;4;Algorithmiques;79
+Comp2;Compilateurs et assembleur;4;Algorithmiques;79
+Data0;Base de données et SQL;2;Sciences de données;86
+Data1;Base de données avancé;3;Sciences de données;86
+Data2;Découverte de big data et algorithmes;3;Sciences de données;86
+Data3;Big data – avancé;4;Sciences de données;86
+EnA1;Anglais niveau A1 (intensif);2;Langue anglaise;91
+EnA11;Anglais niveau A1.1;1;Langue anglaise;91
+EnA12;Anglais niveau A1.2;1;Langue anglaise;91
+EnA2;Anglais niveau A2 (intensif);2;Langue anglaise;91
+EnA21;Anglais niveau A2.1;1;Langue anglaise;91
+EnA22;Anglais niveau A2.2;1;Langue anglaise;91
+EnB1;Anglais niveau B1 (intensif);2;Langue anglaise;91
+EnB11;Anglais niveau B1.1;1;Langue anglaise;91
+EnB12;Anglais niveau B1.2;1;Langue anglaise;91
+EnB2;Anglais niveau B2 (intensif);2;Langue anglaise;91
+EnB21;Anglais niveau B2.1;1;Langue anglaise;91
+EnB22;Anglais niveau B2.2;1;Langue anglaise;91
+EnC1;Anglais niveau C1 (intensif);3;Langue anglaise;91
+EnC2;Anglais niveau C2 (intensif);3;Langue anglaise;91
+Music0;Base de la théorie de la musique occidentale et initiation au solfège;1;Théorie de la musique;115
+Music1;Théories de musique;3;Théorie de la musique;115
+Music2;Composition (théories);4;Théorie de la musique;115

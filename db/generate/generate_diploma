@@ -1,0 +1,58 @@
+#!/bin/python3
+
+"""
+Associates each diploma with a bunch of subjects.
+Usage:
+    generate_diploma DIPLOMA SUBJECT [OUTPUT]
+
+    DIPLOMA: input csv file containing 'Diplome' table
+    SUBJECT: input csv file containing 'Matiere' table
+    OUTPUT: (optional) output file name [default: contenir.csv]
+"""
+
+import sys
+import csv_list
+import numpy as np
+from random import randrange as rnd
+
+# parse script arguments
+if len(sys.argv) > 2:
+    diploma_file = sys.argv[1]
+    subject_file = sys.argv[2]
+    if len(sys.argv) > 3:
+        output = sys.argv [3]
+    else:
+        output = "contenir.csv"
+else:
+    print("Error: no input file")
+    sys.exit(1)
+
+# read input csv
+diploma = csv_list.read(diploma_file)
+subject = csv_list.read(subject_file, header_row=True)
+
+# generate
+dip_credits = [int(dip[2]) for dip in diploma]
+sub_credits = [int(sub[2]) for sub in subject]
+table = np.zeros((len(diploma), len(subject)), dtype=bool)
+
+for i in range(len(diploma)):
+    cred = 0
+    while cred < dip_credits[i]:
+        # get new random subject
+        index = rnd(len(subject))
+        while table[i][index]:
+            index = rnd(len(subject))
+        table[i][index] = True
+        # increment credits
+        cred += sub_credits[index]
+
+# create csv table
+csv_table = []
+for i in range(len(diploma)):
+    for j in range(len(subject)):
+        if table[i,j]:
+            csv_table.append([i+1, subject[j][0]])
+
+# write csv file
+csv_list.write(csv_table, output)

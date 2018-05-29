@@ -1,0 +1,76 @@
+#!/bin/python3
+
+"""
+Associates each diploma with a bunch of subjects.
+Usage:
+    generate_inscriptions ETUDIANT COURS [OUTPUT]
+
+    ETUDIANT: input csv file containing 'Etudiant' table
+    COURS: input csv file containing 'Cours' table
+    OUTPUT: (optional) output file name [default: inscriptions.csv]
+"""
+
+import sys
+import csv_list
+import numpy as np
+import random
+
+# parse script arguments
+if len(sys.argv) > 2:
+    etudiant_file = sys.argv[1]
+    cours_file = sys.argv[2]
+    if len(sys.argv) > 3:
+        output = sys.argv [3]
+    else:
+        output = "inscriptions.csv"
+else:
+    print("Error: no input file")
+    sys.exit(1)
+
+# read input csv
+etudiant = csv_list.read(etudiant_file)
+cours = csv_list.read(cours_file, header_row=True)
+
+# sort courses by time
+def code(row):
+    c = row[0]
+    tri = {'PRN':'1', 'ETE':'2', 'AUT':'3'}
+    t = tri[c[0:3]]
+    return c[3:5] + t + c[5:]
+cours = sorted(cours, key=code)
+
+# generate
+act_year = 18
+csv_table = []
+
+b_rnd = lambda: int(random.choice([True, False]))
+fl_rnd = lambda start, stop: round(random.uniform(start, stop), 2)
+
+for e in range(1, len(etudiant)+1):
+    passed = []
+    # generate random number of inscriptions
+    n = random.randint(0, len(cours)//2)
+    # get n random courses
+    indices = random.sample(range(len(cours)), n)
+    cours_rnd = [cours[i] for i in sorted(indices)]
+    # check courses
+    for c in cours_rnd:
+        if c[0][:-1] not in passed:
+            year = int(c[5])
+            cons = fl_rnd(0, 10)
+            attend = cons >= 5
+            if year <= act_year:
+                if attend and year < act_year:
+                    note_obt = fl_rnd(0, 20)
+                    p = note_obt >= 5
+                    note_obt = str(note_obt)
+                else:
+                    note_obt = ""
+                    p = False
+                row = [c[0], e, b_rnd(), int(attend), cons, note_obt]
+                csv_table.append(row)
+                if p:
+                    passed.append(c[0][:-1])
+
+# write csv file
+csv_list.write(csv_table, output)
