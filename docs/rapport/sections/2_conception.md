@@ -2,7 +2,7 @@
 
 ## Modèle Entité/Association
 
-![Modèle Entité/Association](img/erd.png)
+![Modèle Entité/Association](img/old_erd.png)
 
 **Trimestre :** Cette entité correspond à une période scolaire identifiée par une clé composée de 2 attributs : *année* + *période*. La période est l'une des trois : l'automne, le prinstemps ou l'été, il est possible d'associer une valeur numérique où un code à chaque période afin de minimiser la taille de stockage. Un trimestre est décrit par sa date de début et sa date de fin.
 
@@ -118,4 +118,4 @@ En effet, la relation ternaire était un peu forcée.
 - Preparer(**etudiant**, **diplome**)
 - Contenir(**diplome**, **matiere**)
 
-![Schéma Relationnel](../../../db/erd.png)
+![Schéma Relationnel](img/erd.png)

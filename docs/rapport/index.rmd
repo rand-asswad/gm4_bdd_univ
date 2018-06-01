@@ -12,3 +12,6 @@ knitr::opts_knit$set(root.dir = './')
 
 ```{r child='sections/3_implementation.md'}
 ```
+
+```{r child='sections/4_conclusion.md'}
+```
