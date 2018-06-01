@@ -10,16 +10,16 @@ Pour faciliter la connection, j'ai créé des scripts shell qui lancent les requ
 
 Les tableaux dans ce rapport sont compilé en directe à l'aide des libraries R **knitr** et **DBI**.
 
-Le code source du projet y compris ce rapport est disponible sur: [github.com/rand-asswad/gm4_bdd_univ](https://github.com/rand-asswad/gm4_bdd_univ)
+Le code source du projet y compris ce rapport est disponible sur:
+[github.com/rand-asswad/gm4_bdd_univ](https://github.com/rand-asswad/gm4_bdd_univ)
 
-Le rapport est aussi disponible en format HTML (dynamique) sur:
+Cette section est plus visible en format HTML:
 [rand-asswad.github.io/gm4_bdd_univ/rapport/index.html](https://rand-asswad.github.io/gm4_bdd_univ/rapport/index.html)
 
 Connection à la base de données:
 ```{r}
 library(DBI)
 univ <- dbConnect(RMariaDB::MariaDB(), dbname="univ", username="root")
-dbListTables(univ)
 ```
 
 ## Les requêtes
@@ -86,24 +86,34 @@ C'est-à-dire, les matières que l'étudiant n'a pas encore validées
 SELECT Matiere.code, Matiere.nom, Matiere.credits
 FROM Matiere
 INNER JOIN PreRequisition ON Matiere.code = PreRequisition.matiere
-WHERE Matiere.code NOT IN (SELECT matiere FROM Valide WHERE Valide.etudiant = ?idEtudiant)
-AND PreRequisition.matiereRequise = ANY (SELECT matiere FROM Valide WHERE Valide.etudiant = ?idEtudiant);
+WHERE Matiere.code NOT IN (SELECT matiere
+                           FROM Valide
+                           WHERE Valide.etudiant = ?idEtudiant)
+AND PreRequisition.matiereRequise = ANY (SELECT matiere
+                                         FROM Valide
+                                         WHERE Valide.etudiant = ?idEtudiant);
 ```
 
-On séléctionnent les cours qu'un étudiant peut prendre cette année.
+On séléctionnent les cours qu'un étudiant peut prendre pendant l'année courante.
 ```{sql, connection=univ}
-SELECT Cours.code, Cours.matiere, Matiere.nom, Matiere.credits, Cours.trimestre, Cours.enseignant
+SELECT Cours.code, Matiere.nom, Matiere.credits, Cours.enseignant
 FROM Cours
 INNER JOIN Matiere ON Cours.matiere = Matiere.code
 INNER JOIN PreRequisition ON Cours.matiere = PreRequisition.matiere
-WHERE Matiere.code NOT IN (SELECT matiere FROM Valide WHERE Valide.etudiant = ?idEtudiant)
-AND PreRequisition.matiereRequise = ANY (SELECT matiere FROM Valide WHERE Valide.etudiant = ?idEtudiant)
+WHERE Matiere.code NOT IN (SELECT matiere
+                           FROM Valide
+                           WHERE Valide.etudiant = ?idEtudiant)
+AND PreRequisition.matiereRequise = ANY (SELECT matiere
+                                         FROM Valide
+                                         WHERE Valide.etudiant = ?idEtudiant)
 AND Cours.annee = Year(curdate());
 ```
 
-
+Compter le nombre de matières validées par diplômes pour un étudiant,
+et les afficher dans l'ordre décroissant.
 ```{sql, connection=univ}
-SELECT Diplome.titre, Diplome.niveau, COUNT(1) as nbValide, matieresDiplome.nbMatieres as nbTotal
+SELECT Diplome.titre, Diplome.niveau, COUNT(1) as nbValide,
+    matieresDiplome.nbMatieres as nbTotal
 FROM Contenir
 INNER JOIN Diplome ON Contenir.diplome = Diplome.id
 INNER JOIN Matiere ON Contenir.matiere = Matiere.code
@@ -114,22 +124,29 @@ GROUP BY Contenir.diplome
 ORDER BY nbValide DESC;
 ```
 
+Compter le nombre matières restant pour un étudiant afin de valider un diplôme.
 ```{sql, connection=univ}
 SELECT Matiere.code, Matiere.nom, Matiere.credits
 FROM Contenir
 INNER JOIN Matiere ON Contenir.matiere = Matiere.code
-WHERE Matiere.code NOT IN (SELECT Valide.matiere FROM Valide WHERE Valide.etudiant = ?idEtudiant)
+WHERE Matiere.code NOT IN (SELECT Valide.matiere
+                           FROM Valide
+                           WHERE Valide.etudiant = ?idEtudiant)
 AND Contenir.diplome = ?idDiplome;
 ```
 
+Donner la liste d'inscrits dans un cours, et les ordonner par la note donnée par le conseiller.q
+On test pour cours="`r codeCours`".
 ```{sql, connection=univ}
-SELECT Etudiant.id, Etudiant.prenom, Etudiant.nom, InscriptionCours.noteConseiller, InscriptionCours.suivreCours
+SELECT Etudiant.id, Etudiant.prenom, Etudiant.nom,
+    InscriptionCours.noteConseiller, InscriptionCours.suivreCours
 FROM InscriptionCours
 INNER JOIN Etudiant ON InscriptionCours.etudiant = Etudiant.id
 WHERE InscriptionCours.cours = ?codeCours
 ORDER BY InscriptionCours.noteConseiller DESC;
 ```
 
+Donner la liste de enseignant dans un domain (domain="`r domaine`").
 ```{sql, connection=univ}
 SELECT DISTINCT Professeur.id, Professeur.nom, Professeur.prenom
 FROM Cours

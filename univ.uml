@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>957773b0-8386-436a-935f-c032f7254073.SCHEMA:univ</OriginalElement>
+  <nodes>
+    <node x="707.9585294490003" y="522.5287438551278">957773b0-8386-436a-935f-c032f7254073.TABLE:univ.InscriptionCours</node>
+    <node x="394.6290337295876" y="138.29698600781052">957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Conseiller</node>
+    <node x="418.4091568653686" y="393.8796113770408">957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Preparer</node>
+    <node x="78.70390070921997" y="566.9007092198581">957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Contenir</node>
+    <node x="696.9964113587939" y="790.4295724998809">957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Cours</node>
+    <node x="47.01278640831936" y="263.9934448290302">957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Diplome</node>
+    <node x="392.9326241134754" y="1140.2198581560283">957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Professeur</node>
+    <node x="61.58687943262407" y="852.1702127659574">957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Matiere</node>
+    <node x="49.209330697784765" y="1207.0457242299785">957773b0-8386-436a-935f-c032f7254073.TABLE:univ.PreRequisition</node>
+    <node x="714.3827742146786" y="237.00289823205028">957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Etudiant</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Preparer" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Diplome">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Contenir" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Diplome">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Contenir" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Matiere">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.InscriptionCours" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Etudiant">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Cours" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Professeur">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.InscriptionCours" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Cours">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Etudiant" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Conseiller">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Cours" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Matiere">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.PreRequisition" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Matiere">
+      <point x="-3.416096570525667" y="-3.6510661759057257" />
+      <point x="-3.416096570525653" y="-3.6510661759057257" />
+    </edge>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Matiere" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Professeur">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Preparer" target="957773b0-8386-436a-935f-c032f7254073.TABLE:univ.Etudiant">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Organic" zoom="1.181639624252775" x="499.8070390980706" y="269.851485148515" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
